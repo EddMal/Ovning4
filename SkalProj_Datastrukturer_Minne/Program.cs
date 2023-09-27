@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace SkalProj_Datastrukturer_Minne
 {
@@ -10,6 +11,7 @@ namespace SkalProj_Datastrukturer_Minne
         /// <param name="args"></param>
         static void Main()
         {
+            List<string> theList = new List<string>();
 
             while (true)
             {
@@ -32,7 +34,7 @@ namespace SkalProj_Datastrukturer_Minne
                 switch (input)
                 {
                     case '1':
-                        ExamineList();
+                        ExamineList(theList);
                         break;
                     case '2':
                         ExamineQueue();
@@ -60,7 +62,7 @@ namespace SkalProj_Datastrukturer_Minne
         /// <summary>
         /// Examines the datastructure List
         /// </summary>
-        static void ExamineList()
+        static void ExamineList(List<string> theList)
         {
             /*
              * Loop this method untill the user inputs something to exit to main menue.
@@ -72,12 +74,13 @@ namespace SkalProj_Datastrukturer_Minne
              * Below you can see some inspirational code to begin working.
             */
 
-            //List<string> theList = new List<string>();
+            
             //string input = Console.ReadLine();
             //char nav = input[0];
             //string value = input.substring(1);
-
             //switch(nav){...}
+            var Do = new ExamineUserInput();
+            theList = Do.AddOrRemove(theList);
         }
 
         /// <summary>
