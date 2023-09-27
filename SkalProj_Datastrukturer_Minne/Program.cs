@@ -81,7 +81,22 @@ namespace SkalProj_Datastrukturer_Minne
             //switch(nav){...}
             var Do = new ExamineUserInput();
             theList = Do.AddOrRemove(theList);
-        }
+
+            //--------------------
+            // Övning 1: Frågor 2-6
+            //--------------------
+            
+            // Fråga 2. När en member läggs till så sätts den till default kapacitet (4)
+            // när en femte member läggs till ökar kapaiteten ned 4 (till 8).
+            
+            // Fråga 3. && Fråga 4. Anledningen till ökningen att när listans kapacitet överskrids duplicers storleken genom:
+            // int newcapacity = _items.Length == 0 ? DefaultCapacity : 2 * _items.Length;
+            
+            // Fråga 5. Nej.
+
+            // Fråga 6. Exempelvis när du vill ha större kontroll över utrymme som används.
+
+      }
 
         /// <summary>
         /// Examines the datastructure Queue

@@ -38,11 +38,9 @@ namespace SkalProj_Datastrukturer_Minne
             }
             set
             {
-                if (value is '-' or '+')
-                { }
-                else
+                if (value is ' ')//value is '-' or '+')
                 {
-                    throw new ArgumentException($"Error: Faulty input: \"{value}\", input must be at least 1 character");
+                    throw new ArgumentException($"Error: Faulty input: \"{value}\", input must be at least 1 character and not whitespace");
                 }
 
                 selectAction = value;
