@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SkalProj_Datastrukturer_Minne
 {
-    internal class ExamineUserInput: ExamineInput
+    internal class ExamineUserList: ExamineInput
     {
-        public List<string> AddOrRemove(List<string> inputs)
+        public virtual List<string> AddOrRemove(List<string> inputs)
         {
             SendOutput("Enter Input:Press Q to return to startmenu.\nEnter: Start with \"+\" to add a member to the list, \"-\" to remove a member.\nEnter the member name after the option-select-operator.\nExample: \"+Girgula\":");
             do

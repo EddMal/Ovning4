@@ -12,6 +12,7 @@ namespace SkalProj_Datastrukturer_Minne
         static void Main()
         {
             List<string> theList = new List<string>();
+            Queue<string> queue = new Queue<string>();
 
             while (true)
             {
@@ -37,7 +38,7 @@ namespace SkalProj_Datastrukturer_Minne
                         ExamineList(theList);
                         break;
                     case '2':
-                        ExamineQueue();
+                        ExamineQueue(queue);
                         break;
                     case '3':
                         ExamineStack();
@@ -79,7 +80,7 @@ namespace SkalProj_Datastrukturer_Minne
             //char nav = input[0];
             //string value = input.substring(1);
             //switch(nav){...}
-            var Do = new ExamineUserInput();
+            var Do = new ExamineUserList();
             theList = Do.AddOrRemove(theList);
 
             //--------------------
@@ -101,14 +102,19 @@ namespace SkalProj_Datastrukturer_Minne
         /// <summary>
         /// Examines the datastructure Queue
         /// </summary>
-        static void ExamineQueue()
+        static void ExamineQueue(Queue<string> queue)
         {
             /*
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
+
+            var Do = new ExamineUserQueue();
+            queue = Do.EnqueueOrDequeue(queue);
         }
+
+       
 
         /// <summary>
         /// Examines the datastructure Stack
