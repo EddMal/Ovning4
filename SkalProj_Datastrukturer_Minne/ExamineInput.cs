@@ -8,6 +8,7 @@ namespace SkalProj_Datastrukturer_Minne
 {
     abstract class ExamineInput: UIUserInterface
     {
+        //Could be replaced with locals inside methods.
         private string input;
         private char selectAction;
  
@@ -84,7 +85,7 @@ namespace SkalProj_Datastrukturer_Minne
             }
             else
             {
-                SendOutput($"Error falty input : \"{input}\", input cant be left empty must be atleast two characters and start with \"-\" or \"+\".");
+                SendOutput($"Error falty input : \"{input}\", input cant be left empty must be atleast two characters and start with \"-\" or \"+\". Enter \"q\" to return to main menu.");
                 
             }
 

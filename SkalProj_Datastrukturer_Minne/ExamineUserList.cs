@@ -45,7 +45,7 @@ namespace SkalProj_Datastrukturer_Minne
                     case 'q':
                         break;
                     default:
-                        SendOutput($"Falty input. Input can not be left empty must be atleast two characters and start with \"-\" or \"+\" or \"q\"to return to main menu");
+                        SendOutput($"Faulty input. Input can not be left empty must be atleast two characters and start with \"-\" or \"+\" or \"q\"to return to main menu");
                         break;
 
                 }
@@ -113,7 +113,7 @@ namespace SkalProj_Datastrukturer_Minne
             if (UserInput == null)
             {//Not the best practise part 1, handling of conditions could be optimized a lot.
              //Handling input for q+charcter/characters would need to be adressed.
-                input = "x";
+             //   input = "x";
             }
 
             return input;

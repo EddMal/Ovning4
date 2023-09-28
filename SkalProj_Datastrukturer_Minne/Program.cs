@@ -13,6 +13,7 @@ namespace SkalProj_Datastrukturer_Minne
         {
             List<string> theList = new List<string>();
             Queue<string> queue = new Queue<string>();
+            Stack<string> stack = new Stack<string>();
 
             while (true)
             {
@@ -41,7 +42,7 @@ namespace SkalProj_Datastrukturer_Minne
                         ExamineQueue(queue);
                         break;
                     case '3':
-                        ExamineStack();
+                        ExamineStack(stack);
                         break;
                     case '4':
                         CheckParanthesis();
@@ -121,17 +122,30 @@ namespace SkalProj_Datastrukturer_Minne
         /// <summary>
         /// Examines the datastructure Stack
         /// </summary>
-        static void ExamineStack()
+        static void ExamineStack(Stack<string> stack)
         {
             /*
              * Loop this method until the user inputs something to exit to main menue.
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
+
+            //--------------------
+            // Övning 3: Fråga 1
+            //--------------------
+            // Svar: Flödet för stacken hindrar att plocka ut i annan ordning än sista datan som stoppades in,
+            // om vi då stoppar in kalle sedan greta och ska plocka ut kalle måste vi först plocka ut greta.
+
+            var Do = new ExamineUserStack();
+            stack = Do.PushOrPop(stack);
+
+            // ändra i stackutskrift i slutet om reversed har kört så skrivs "Stack: " ut.
+            //kontrolera ordningsnummer för stack /queue.
         }
 
         static void CheckParanthesis()
         {
+            //ckeck if examine queue prints the leaving member.
             /*
              * Use this method to check if the paranthesis in a string is Correct or incorrect.
              * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };

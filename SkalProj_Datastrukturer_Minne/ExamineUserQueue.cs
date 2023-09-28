@@ -18,7 +18,7 @@ namespace SkalProj_Datastrukturer_Minne
         public override T AddOrRemove<T>(T inputs)
         {
             Queue<string> queueInputs = inputs as Queue<string>;
-            SendOutput("Enter Input:\"q\" to return to startmenu.\nEnter: Start with \"+\" to add a member to the queue, \"-\" + a second character to dequeue a member.\nTo enqueue a member enter the member name after the option-select-operator.\nWhen dequeeue of a member the only relevant input is the first char \"-\"");
+            SendOutput("Enter Input:\"q\" to return to startmenu.\nEnter: Start with \"+\" to add a member to the queue, \"-\" + to dequeue the first member in queue.\nTo enqueue a member enter the member name after the option-select-operator.\nWhen dequeeue of a member the only relevant input is the first char \"-\"");
             do
             {
                 InputForExamination();
@@ -29,10 +29,11 @@ namespace SkalProj_Datastrukturer_Minne
                         SendOutput($"\"{Input}\" entered the queue at position {queueInputs.Count}.");
                         break;
                     case '-':
-                        if (queueInputs is not null)
+                        if (queueInputs.Count != 0)
                         {
+                            SendOutput($"\"{queueInputs.Peek()}\" left the queue.");
                             queueInputs.Dequeue();
-                            SendOutput($"\"{Input}\" left the queue.");
+                            
                         }
                         else
                         {
@@ -42,7 +43,7 @@ namespace SkalProj_Datastrukturer_Minne
                     case 'q':
                         break;
                     default:
-                        SendOutput($"Falty input. Input can not be left empty must be atleast two characters and start with \"-\" or \"+\" or \"q\"to return to main menu");
+                        SendOutput($"Faulty input. Input can not be left empty must be atleast two characters and start with \"+\", \"-\" or \"q\"to return to main menu");
                         break;
 
                 }
@@ -52,7 +53,7 @@ namespace SkalProj_Datastrukturer_Minne
             } while (SelectAction != 'q');
 
             if (queueInputs is not null)
-            {
+            {   //Should be placed in ExamineInput class.
                 int count=0;
                 SendOutput("\nThe Queue:");
                 foreach (var item in queueInputs)
@@ -75,7 +76,7 @@ namespace SkalProj_Datastrukturer_Minne
         {
             string UserInput = GetInput();
 
-            //NBad practise part, handling of conditions could be optimized a lot.
+            //Bad practise part, handling of conditions could be optimized a lot.
             //Handling input for q+charcter/characters would need to be adressed.
             if (ValidateInput(UserInput))
             {
@@ -83,19 +84,13 @@ namespace SkalProj_Datastrukturer_Minne
                 SelectAction = UserInput.First();
             }
             else if (UserInput == "")
-            {
+            {  //Triggers default in switch.
                 SelectAction = 'x';
 
             }
             else
             {
-                //Triggers default in switch.
-                if (UserInput.First() is 'q' or '-')
-                {
-
-                    SelectAction = UserInput.First();
-
-                }
+                SelectAction = UserInput.First();
             }
         }
     }
