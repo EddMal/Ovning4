@@ -139,7 +139,7 @@ namespace SkalProj_Datastrukturer_Minne
             var Do = new ExamineUserStack();
             stack = Do.PushOrPop(stack);
 
-            // ändra i stackutskrift i slutet om reversed har kört så skrivs "Stack: " ut.
+            // ändra i stackutskrift i slutet om reversed har kört så skrivs "Stack: " ut kanske även vid direkt "q"? kolla även för queue.
             //kontrolera ordningsnummer för stack /queue.
         }
 
