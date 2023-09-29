@@ -52,7 +52,7 @@ namespace SkalProj_Datastrukturer_Minne
 
             } while (SelectAction != 'q');
 
-            if (queueInputs is not null)
+            if (queueInputs.Count > 0)
             {   //Should be placed in ExamineInput class.
                 int count=0;
                 SendOutput("\nThe Queue:");

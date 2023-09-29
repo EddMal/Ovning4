@@ -28,7 +28,7 @@ namespace SkalProj_Datastrukturer_Minne
                         SendOutput($"\"{Input}\" entered the stack at position {stackMessages.Count}.");
                         break;
                     case '-':
-                        if (stackMessages.Count != 0)
+                        if (stackMessages.Count > 0)
                         {
                             SendOutput($"\"{stackMessages.Peek()}\" is poped from the stack.");
                             stackMessages.Pop();
@@ -80,14 +80,15 @@ namespace SkalProj_Datastrukturer_Minne
 
             } while (SelectAction != 'q');
 
-            if (stackMessages is not null)
+            if (stackMessages.Count > 0)
             {
-                int count = 0;
+                int count = stackMessages.Count;
                 SendOutput("\nThe Stack:");
                 foreach (var item in stackMessages)
                 {
-                    count++;
+                    
                     SendOutput($"{count}.{item}");
+                    count--;
                 }
             }
             else
