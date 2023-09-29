@@ -139,13 +139,13 @@ namespace SkalProj_Datastrukturer_Minne
             var Do = new ExamineUserStack();
             stack = Do.PushOrPop(stack);
 
-            // ändra i stackutskrift i slutet om reversed har kört så skrivs "Stack: " ut kanske även vid direkt "q"? kolla även för queue.
-            //kontrolera ordningsnummer för stack /queue.
         }
 
         static void CheckParanthesis()
         {
-            //ckeck if examine queue prints the leaving member.
+            //Just a test for pasing function not best practise.
+            var Do = new CheckUsersParantheses(Console.ReadLine);
+            Do.CompareParanteses();
             /*
              * Use this method to check if the paranthesis in a string is Correct or incorrect.
              * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };

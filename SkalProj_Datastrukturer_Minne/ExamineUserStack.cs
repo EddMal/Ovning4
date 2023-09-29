@@ -30,7 +30,7 @@ namespace SkalProj_Datastrukturer_Minne
                     case '-':
                         if (stackMessages.Count > 0)
                         {
-                            SendOutput($"\"{stackMessages.Peek()}\" is poped from the stack.");
+                            SendOutput($"\"{stackMessages.Peek()}\" is popped from the stack.");
                             stackMessages.Pop();
                         }
                         else
