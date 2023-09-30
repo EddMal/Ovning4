@@ -143,9 +143,13 @@ namespace SkalProj_Datastrukturer_Minne
 
         static void CheckParanthesis()
         {
+            
+            var Do = new CheckUsersParantheses();
+
             //Just a test for pasing function not best practise.
-            var Do = new CheckUsersParantheses(Console.ReadLine);
-            Do.CompareParanteses();
+
+            //Handle if no parantheses in either string
+            Do.CompareParanteses(Console.ReadLine);
             /*
              * Use this method to check if the paranthesis in a string is Correct or incorrect.
              * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };

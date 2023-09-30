@@ -17,16 +17,21 @@ namespace SkalProj_Datastrukturer_Minne
             set => inputWithParantheses = value ?? throw new ArgumentException($"Null is not a valid string input.");
         }
 
-        public CheckUsersParantheses(Func<string> InputMethod)
+        internal void CheckUsersInput(Func<string> InputMethod)
         {
             bool valid = false;
             string input;
             do
             {
                 
+                
+                
                 input = InputMethod();
                 //Lambda, tried out need more info to make swifter.
-                valid = true ? input != null: false ;
+                //var isValid = false ? input is "" or null : true;
+                //valid = isValid
+                if(input is not "" or not null)
+                    valid = true;
                 if (!valid)
                 {
                     SendOutput("String consist of faulty input, try again:");
@@ -36,16 +41,17 @@ namespace SkalProj_Datastrukturer_Minne
             InputWithParantheses = input;
         }
 
-        internal void CompareParanteses()
+        internal void CompareParanteses(Func<string> InputMethod)
         {
+            SendOutput("Parantheses checker, input your line to se if parantheses adds up:");
 
-
+            CheckUsersInput(InputMethod);
             Stack<char> rightFacingParantheses = new Stack<char>();
             Stack<char> leftFacingParantheses = new Stack<char>();
             //Queue<char> leftFacingParantheses = new Queue<char>();
 
-            IEnumerable<char> listRightFacingP = new List<char>();
-            IEnumerable<char> listLeftFacingP = new List<char>();
+            List<char> listRightFacingP = new List<char>();
+            List<char> listLeftFacingP = new List<char>();
 
 
             PushParantheses(rightFacingParantheses, '(', '{', '[');
@@ -55,33 +61,35 @@ namespace SkalProj_Datastrukturer_Minne
             // New error.
             listRightFacingP = PopParantheses(rightFacingParantheses);
             listLeftFacingP = PopParantheses(leftFacingParantheses);
-            IEnumerable<char> reversedLeft = listLeftFacingP.Reverse();
+            listLeftFacingP.Reverse();
 
-            bool valid = MatchParantheses(listRightFacingP, reversedLeft);
+            bool valid = MatchParantheses(listRightFacingP, listLeftFacingP);
 
-             if (valid)
+             if (valid ==true)
                  SendOutput("Parantheses did match.");
              else
                  SendOutput("Parantheses did not match.");
         }
 
 
-        private bool MatchParantheses(IEnumerable<char> listRightFacingP, IEnumerable<char> listLeftFacingP) 
+        private bool MatchParantheses(List<char> listRightFacingP, List<char> listLeftFacingP) 
         {
             bool valid = true;
-            while (valid)
-            { 
-                foreach (char cr in listRightFacingP)
+
+            foreach (var (chr, chr2) in listRightFacingP.Zip(listLeftFacingP))
+            {
+                // Rewrite invert condition.
+                if ((chr is '(' && chr2 is ')') || (chr is '[' && chr2 is ']') || (chr is '{' && chr2 is '}'))
                 {
-                    foreach (char cl in listLeftFacingP)
-                    {
-                        if ((cr is '(' && cl == ')') || (cr is '[' && cl is ']') || (cr is '{' && cl is '}'))
-                            valid = true;
-                        else
-                            valid = false;
-                    }
+                    
                 }
+                else
+                {
+                    valid = false;
+                }
+                   
             }
+
             return valid;
             
         }
@@ -99,32 +107,20 @@ namespace SkalProj_Datastrukturer_Minne
             }
         }
 
-        //internal void QueueParantheses(Queue<char> queue, char one, char two, char three)
-        //{
-        //    foreach (char item in InputWithParantheses)
-        //    {
-        //        char parantheses = item;
 
-        //        if (item == one || item == two || item == three)
-        //            queue.Enqueue(parantheses);
-
-        //    }
-        //}
-
-        internal IEnumerable<char> PopParantheses(Stack<char> stack)
+        internal List<char> PopParantheses(Stack<char> stack)
         {
+            List<char> parantheses = new List<char>();
             if (stack.Count > 0)
             {
-                
-                int count = stack.Count;
-                SendOutput("\nThe Stack:");
                 foreach (var item in stack)
                 {
-                
-                   yield return item;
-                    count--;
-                }
+                    parantheses.Add(item);
+
+                }          
             }
+
+            return parantheses;
 
         }
     }
