@@ -23,9 +23,6 @@ namespace SkalProj_Datastrukturer_Minne
             string input;
             do
             {
-                
-                
-                
                 input = InputMethod();
                 //Lambda, tried out need more info to make swifter.
                 //var isValid = false ? input is "" or null : true;
@@ -53,14 +50,19 @@ namespace SkalProj_Datastrukturer_Minne
             List<char> listRightFacingP = new List<char>();
             List<char> listLeftFacingP = new List<char>();
 
-
+            //Method could be changed to reccive a delegate stack.Push/ and stack.Pop
             PushParantheses(rightFacingParantheses, '(', '{', '[');
             PushParantheses(leftFacingParantheses, ')', '}', ']');
+
+            if (rightFacingParantheses.Count == 0 || leftFacingParantheses.Count == 0)
+            { 
+                SendOutput("Faulty input, there is not enough or incorrect input.");
+            }
             //QueueParantheses(leftFacingParantheses, ')', '}', ']');
 
             // New error.
-            listRightFacingP = PopParantheses(rightFacingParantheses);
-            listLeftFacingP = PopParantheses(leftFacingParantheses);
+            listRightFacingP = StackToList(rightFacingParantheses);
+            listLeftFacingP = StackToList(leftFacingParantheses);
             listLeftFacingP.Reverse();
 
             bool valid = MatchParantheses(listRightFacingP, listLeftFacingP);
@@ -95,6 +97,7 @@ namespace SkalProj_Datastrukturer_Minne
         }
 
         //To manu parameters should be replaced with lambda perhaps.
+        //Method could be changed to reccive a delegate stack.Push/ and stack.Pop
         internal void PushParantheses (Stack<char> stack, char one, char two, char three)
         {
             foreach (char item in InputWithParantheses)
@@ -108,7 +111,7 @@ namespace SkalProj_Datastrukturer_Minne
         }
 
 
-        internal List<char> PopParantheses(Stack<char> stack)
+        internal List<char> StackToList(Stack<char> stack)
         {
             List<char> parantheses = new List<char>();
             if (stack.Count > 0)
