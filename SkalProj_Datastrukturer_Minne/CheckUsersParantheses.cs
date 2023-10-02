@@ -38,6 +38,7 @@ namespace SkalProj_Datastrukturer_Minne
             InputWithParantheses = input;
         }
 
+        // Should be divided into methods.
         internal void CompareParanteses(Func<string> InputMethod)
         {
             SendOutput("Parantheses checker, input your line to se if parantheses adds up:");
