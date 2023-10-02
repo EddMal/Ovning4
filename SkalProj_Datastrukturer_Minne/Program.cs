@@ -131,7 +131,7 @@ namespace SkalProj_Datastrukturer_Minne
             */
 
             //--------------------
-            // Övning 3: Fråga 1
+            // Övning 2: Fråga 1
             //--------------------
             // Svar: Flödet för stacken hindrar att plocka ut i annan ordning än sista datan som stoppades in,
             // om vi då stoppar in kalle sedan greta och ska plocka ut kalle måste vi först plocka ut greta.
@@ -143,12 +143,14 @@ namespace SkalProj_Datastrukturer_Minne
 
         static void CheckParanthesis()
         {
-            
+            //--------------------
+            // Övning 3: Fråga? 1
+            //--------------------
+            // Lista skulle förmodligen kunna ge det mest optimerade resultatet av mängd använd kod,
+            // detta på grund av att det finns många fördigdefinerade funktioner samt smidiga sätt att bearbeta datan genom LinQ.
+            // Jag har valt att använda stackar och Listor.
             var Do = new CheckUsersParantheses();
-
-            //Just a test for pasing function not best practise.
-
-            //Handle if no parantheses in either string
+            // Test passing function as parameter.
             Do.CompareParanteses(Console.ReadLine);
             /*
              * Use this method to check if the paranthesis in a string is Correct or incorrect.
